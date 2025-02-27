@@ -127,6 +127,19 @@ section {
     flex-direction: row-reverse;
 }
 
+/* セクションのフェードイン */
+.fade-section {  /* 初期状態（透明） */
+    opacity: 0;
+    transform: translateY(30px); /* 下から少し浮き上がる */
+    transition: opacity 1s ease-out, transform 1s ease-out;
+    display: block !important; /* 追加 */
+  }
+
+  .fade-section.fade-in {  /* フェードイン時 */
+    opacity: 1;
+    transform: translateY(0);
+  }
+
 /* コンテンツのスタイル */
 .content {
     flex: 1;
