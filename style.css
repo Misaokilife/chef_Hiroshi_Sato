@@ -279,6 +279,52 @@ footer {
     transform: scale(1.1); /* ホバー時に少し大きくする */
 }
 
+/* トップへ戻るボタン */
+#top-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 80px;
+    height: 80px;
+    background-color: #1a1a1a;
+    color: #a0d468;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    transition: opacity 0.3s ease, transform 0.4s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    visibility: hidden;
+}
+
+#top-button:hover {
+    background-color: #a0d468; /* 濃い緑に変更 */
+    color: white;
+    opacity: 0.9 !important;
+    transform: translateY(-3px); /* 少し浮かせる */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* フェードイン */
+.fade-in {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0);
+}
+
+/* フェードアウト */
+.fade-out {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transform: translateY(20px);
+}
+
+a, button {
+    transition: opacity 0.3s ease-in-out;
+}
+
 /* レスポンシブデザイン */
 @media (max-width: 768px) {
 

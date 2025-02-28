@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
+    
     // スクロールイベントによるアクティブなリンクのハイライト
     window.addEventListener('scroll', () => {
         const sections = document.querySelectorAll('section');
@@ -39,6 +40,26 @@ document.addEventListener('DOMContentLoaded', function() {
             const header = document.querySelector('header');
             header.classList.remove('nav-open'); // メニューを閉じる
         });
+    });
+
+    // トップに戻るボタンのクリックイベント
+    $('#top-button').click(function(event) {
+        event.preventDefault(); // デフォルト動作を防ぐ
+        console.log("トップボタンがクリックされました！"); // デバッグ確認用
+        $('html, body').animate({ scrollTop: 0 }, 800, 'swing'); // スムーズスクロール
+    });
+
+    // **トップへ戻るボタンのフェードイン・アウト**
+    const topButton = document.getElementById("top-button");
+
+    window.addEventListener("scroll", function() {
+        if (window.scrollY > 100) {  // 100pxスクロールしたら表示
+            topButton.classList.remove("fade-out");
+            topButton.classList.add("fade-in");
+        } else {
+            topButton.classList.remove("fade-in");
+            topButton.classList.add("fade-out");
+        }
     });
 
     // ページ内リンクのスムーズスクロール
