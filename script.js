@@ -1,5 +1,18 @@
 document.addEventListener('DOMContentLoaded', function() {
     
+    //スクロール時にヘッダーを半透明に//
+    const header = document.querySelector("header");
+
+    window.addEventListener("scroll", function() {
+        if (window.scrollY > 50) {  // 50px以上スクロールしたら
+            header.classList.add("scrolled");  // クラスを追加
+            console.log("スクロール: scrolled クラス追加"); // デバッグ確認
+        } else {
+            header.classList.remove("scrolled");  // クラスを削除
+            console.log("スクロール: scrolled クラス削除"); // デバッグ確認
+        }
+    });
+    
     // スクロールイベントによるアクティブなリンクのハイライト
     window.addEventListener('scroll', () => {
         const sections = document.querySelectorAll('section');

@@ -16,13 +16,29 @@ body {
 
 /* ヘッダーとナビゲーションのスタイリング */
 header {
-    background-color: #1a1a1a;
-    padding: 20px 40px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(26, 26, 26, 1);
+    transition: background-color 0.3s ease, padding 0.3s ease;
     color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 32px;
+    padding: 20px 40px;
+    z-index: 1000;
+}
+
+/* スクロール時のヘッダー */
+header.scrolled {
+    background-color: rgba(26, 26, 26, 0.9); /* 半透明 */
+    padding: 15px 40px; /* スクロール時に少し小さく */
+}
+
+/* ヘッダーの下のコンテンツが隠れないように調整 */
+body {
+    padding-top: 80px; /* ヘッダーの高さ分、コンテンツを下げる */
 }
 
 h1 {
@@ -56,8 +72,9 @@ nav {
 
 nav a {
     color: #a0d468;
+    opacity: 0.8;
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 400;
     transition: color 0.3s ease;
 }
 
