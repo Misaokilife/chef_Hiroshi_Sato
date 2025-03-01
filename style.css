@@ -39,6 +39,7 @@ header.scrolled {
 /* ヘッダーの下のコンテンツが隠れないように調整 */
 body {
     padding-top: 80px; /* ヘッダーの高さ分、コンテンツを下げる */
+    background: linear-gradient(to bottom, #F9F9F9, #ECECEC);
 }
 
 h1 {
@@ -75,16 +76,20 @@ nav a {
     opacity: 0.8;
     text-decoration: none;
     font-weight: 400;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease, opacity 0.3s ease;
 }
 
 nav a:hover {
-    color: #ffffff; /* アクセントカラーに変更 */
+    color: #EAEAEA;
+    opacity: 0.8;
+    transform: translateY(-2px);
 }
 
 nav a.active {
-    color: #a0d468;  /* アクティブなリンクに目立つ色を適用 */
+    color: #EAEAEA;  /* アクティブなリンクに目立つ色を適用 */
+    opacity: 1;
     font-weight: bold;
+    border-bottom: 1px solid white;
 }
 
 .responsive-social-icons {

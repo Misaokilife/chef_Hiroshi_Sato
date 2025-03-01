@@ -21,15 +21,21 @@ document.addEventListener('DOMContentLoaded', function() {
         let currentSection = '';
 
         sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            if (window.scrollY >= sectionTop - 60) {  // 60pxの余白を考慮
+            const sectionTop = section.offsetTop - 80; // ヘッダーの高さ分を考慮
+            if (window.scrollY >= sectionTop) {  
                 currentSection = section.getAttribute('id');
             }
         });
 
+        // メインビジュアルより上にいる場合、アクティブを解除
+        const mainVisual = document.querySelector('.main-visual');
+        if (mainVisual && window.scrollY < mainVisual.offsetHeight - 80) {
+            currentSection = ''; // 何もアクティブにしない
+        }
+
         navLinks.forEach(link => {
             link.classList.remove('active');
-            if (link.getAttribute('href').includes(currentSection)) {
+            if (currentSection && link.getAttribute('href').includes(currentSection)) {
                 link.classList.add('active');
             }
         });
