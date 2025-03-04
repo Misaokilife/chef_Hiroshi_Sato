@@ -1,6 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
     
-    //スクロール時にヘッダーを半透明に//
+    // ローディングアニメーション
+    const loadingScreen = document.getElementById('loading-screen');
+    setTimeout(() => {
+        loadingScreen.classList.add('hide'); // フェードアウト + display: none;
+    }, 2000); // 2秒後にフェードアウト
+
+    //スクロール時にヘッダーを半透明に
     const header = document.querySelector("header");
 
     window.addEventListener("scroll", function() {
@@ -32,6 +38,9 @@ document.addEventListener('DOMContentLoaded', function() {
         if (mainVisual && window.scrollY < mainVisual.offsetHeight - 80) {
             currentSection = ''; // 何もアクティブにしない
         }
+
+        console.log(`Current Section: ${currentSection}`); // デバッグ用
+
 
         navLinks.forEach(link => {
             link.classList.remove('active');
@@ -122,5 +131,35 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // スクロール時に適用
     $(window).on('scroll', checkFadeIn);
+
+     // Slick スライダーの初期化
+     $(document).ready(function(){
+        $('.slider').slick({
+            arrows: false,  // 矢印なし
+            autoplay: true,  // 自動スライド
+            autoplaySpeed: 5000,  // 自動スライドの間隔（3秒）
+            speed: 1500,  // スライドの速度
+            infinite: true,  // ループするか
+            pauseOnHover: false,  // ホバー時に停止しない
+            pauseOnFocus: false,  // フォーカス時に停止しない
+            cssEase: 'ease-in-out',  // アニメーションの種類
+            slidesToShow: 2,  // 画面に表示するスライド数
+            slidesToScroll: 1,  // スクロールするスライド数
+            responsive: [
+                {
+                    breakpoint: 769,  // 画面幅769px以下の設定
+                    settings: {
+                        slidesToShow: 1,  // 1枚表示
+                    }
+                },
+                {
+                    breakpoint: 426,  // 画面幅426px以下の設定
+                    settings: {
+                        slidesToShow: 1,  // 1枚表示
+                    }
+                }
+            ]
+        });
+    });
 
 });

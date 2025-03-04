@@ -43,21 +43,78 @@ body {
 }
 
 h1 {
-    font-family: 'EB Garamond', serif; /* 漢字部分のフォント */
+    font-family: 'Noto Serif JP', serif; /* 漢字部分のフォント */
     font-weight: 700;
-    font-size: 36px;
+    font-size: 42px;
     margin: 0;
     padding: 0;
-    line-height: 1;
-    letter-spacing: 2px;
+    line-height: 1.1;
+    letter-spacing: 3px;
     color: #f4f4f9;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
 }
 
 .subtitle {
-    display: inline;
-    font-size: 20px; /* サイズを小さめに */
-    color: #888888; /* 控えめなグレーで調整 */
-    margin-left: 12px; /* 適度な余白 */
+    font-family: 'Playfair Display', serif;
+    font-size: 16px; /* サイズを小さめに */
+    color: rgba(255, 255, 255, 0.6);
+    letter-spacing: 1.5px;
+    font-weight: 300;
+    margin-top: 7px;
+}
+
+/* ローディング画面のスタイル */
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #1a1a1a; /* 背景色 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 0.8s ease-out;
+}
+
+/* ローディングのテキスト */
+.loading-text {
+    font-size: 42px; /* h1 と同じサイズ */
+    font-weight: bold;
+    color:  rgba(255, 255, 255, 0.6); 
+    opacity: 0;
+    animation: fadeIn 2.5s ease-out forwards; /* 2.5秒かけてふわっと */
+}
+
+/* サブタイトル（少し遅れて表示） */
+.loading-subtitle {
+    opacity: 0;
+    font-size: 20px;
+    animation: fadeIn 2.2s ease-out forwards;
+}
+
+/* フェードインアニメーション */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(15px); /* ちょっと下から出現 */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ローディング画面をフェードアウト */
+#loading-screen.hide {
+    opacity: 0;
+    transition: opacity 0.8s ease-out;
+    display: none;
 }
 
 .hamburger {
@@ -130,6 +187,9 @@ nav a.active {
 /* ホバー時にアクセントカラーに変える */
 .container:hover {
     background-color: rgba(160, 212, 104, 0.1); /* 薄いアクセントカラー */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* ほんのり影をつける */
+    transform: scale(1.02); /* 少し大きく */
+    transition: all 0.3s ease-in-out;
 }
 
 /* セクションのスタイリング */
@@ -201,6 +261,99 @@ section {
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* シャドウを強化 */
     border: 2px solid #f4f4f9; /* さりげないボーダー */
+}
+
+/* ギャラリーセクション */
+#gallery {
+    text-align: center;
+    padding: 80px 0;
+    background-color: #F9F9F9;
+}
+
+/* ギャラリーセクションのコンテナ */
+.gallery-container {
+    width: 85%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px 0;
+    transition: background-color 0.3s ease-in-out;
+    border-radius: 12px; /* 少し丸みをつける */
+}
+
+/* ホバー時にアクセントカラーを追加 */
+.gallery-container:hover {
+    background-color: rgba(160, 212, 104, 0.08); /* 優しく浮かび上がるような色 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* ほんのり影をつける */
+    transform: scale(1.02); /* 少し大きく */
+    transition: all 0.3s ease-in-out;
+}
+
+/* ギャラリーの説明 */
+.gallery-content {
+    max-width: 800px;
+    margin: 0 auto 40px;
+}
+
+/* スライダーのラッパー */
+.slider-wrapper {
+    width: 85%;
+    max-width: 1100px;
+    margin: 0 auto;
+    height: 450px;
+    display: flex;
+    align-items: center;
+}
+
+/* スライダー全体のスタイル */
+.slider {
+    width: 100%;
+}
+
+/* slickのJavaScriptで書かれるタグ内、スライド左右の余白調整*/
+.slider .slick-slide {
+    margin: 0 20px;
+}
+
+/* スライダーの画像 */
+.slider img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 14px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* スライダーの矢印カスタマイズ */
+.slick-prev, .slick-next {
+    font-size: 24px;
+    color: #333;
+    z-index: 100;
+}
+
+.slick-prev {
+    left: -40px;
+}
+
+.slick-next {
+    right: -40px;
+}
+
+/* ドット（ページネーション）カスタマイズ */
+.slick-dots {
+    bottom: -30px;
+}
+
+.slick-dots li button:before {
+    color: #a0d468;
+}
+
+.slick-dots li.slick-active button:before {
+    color: #1a1a1a
+}
+
+/* コンタクトセクション */
+.contact-bgr {
+    background-color: #F9F9F9;
 }
 
 /* テキストのスタイリング */

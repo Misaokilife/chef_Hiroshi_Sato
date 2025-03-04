@@ -19,13 +19,24 @@
         h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
         })(document);
     </script>
+    <!-- SlickのCSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <!-- SlickのテーマCSS（オプション） -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
 </head>
 <body>
 
+    <!-- ローディング画面 -->
+    <div id="loading-screen">
+        <div class="loading-text">佐藤 宏</div>
+        <div class="loading-subtitle">Chef Hiroshi Sato</div>
+    </div>
+
     <!-- ヘッダーとナビゲーション -->
     <header>
-        <h1>佐藤 宏<span class="subtitle">Chef - Hiroshi Sato -</span></h1>
-        
+
+        <h1>佐藤 宏<span class="subtitle">Chef Hiroshi Sato</span></h1>
+
         <!-- ハンバーガーメニューアイコン -->
         <button class="hamburger">&#9776;</button>
 
@@ -72,14 +83,22 @@
     </section>
 
     <!-- Gallery セクション -->
-    <section id="gallery" class="section-alternate fade-section">
-        <div class="container">
-            <div class="content">
+    <section id="gallery" class="fade-section">
+        <div class="gallery-container">
+            <div class="gallery-content">
                 <h2>Signature Dishes</h2>
-                <p>Explore Hiroshi’s collection of signature dishes, inspired by the seasons and the rich cultural heritage of Japan. Each dish reflects a deep understanding of traditional techniques, combined with a modern touch. Catch exclusive recipes and cooking tutorials on his YouTube channel!</p>
+                <p>Experience Hiroshi’s signature dishes, blending seasonal ingredients with Japanese tradition.</p>
             </div>
-            <div class="image-container">
-                <img src="images/dishes.jpeg" alt="Japanese Cuisine Gallery">
+
+            <!-- Slick スライダーをここに追加 -->
+            <div class="slider-wrapper"> 
+                <div class="slider">
+                    <div><img src="images/dishes.jpeg" alt="Dish 1"></div>
+                    <div><img src="images/dishes.jpeg" alt="Dish 2"></div>
+                    <div><img src="images/dishes.jpeg" alt="Dish 3"></div>
+                    <div><img src="images/dishes.jpeg" alt="Dish 4"></div>
+                    <div><img src="images/dishes.jpeg" alt="Dish 5"></div>
+                </div>
             </div>
         </div>
     </section>
@@ -111,7 +130,7 @@
     </section>
 
     <!-- Contact セクション -->
-    <section id="contact" class="fade-section">
+    <section id="contact" class="fade-section contact-bgr">
         <div class="container">
             <div class="content">
                 <h2>Contact</h2>
@@ -147,7 +166,10 @@
         </div>
     </footer>
     <button id="top-button">TOP</button>
+    <!-- jQueryの読み込み -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <!-- SlickのJavaScript（jQueryの後に） -->
+<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="script.js"></script>
 </body>
-</html>
+</html> 
