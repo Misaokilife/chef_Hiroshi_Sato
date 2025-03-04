@@ -158,17 +158,23 @@ section {
 }
 
 /* セクションのフェードイン */
-.fade-section {  /* 初期状態（透明） */
+.fade-section { /* 初期状態（透明） */
     opacity: 0;
-    transform: translateY(30px); /* 下から少し浮き上がる */
-    transition: opacity 1s ease-out, transform 1s ease-out;
-    display: block !important; /* 追加 */
+    transition: opacity 2s ease-out, transform 2s ease-out;
   }
 
-  .fade-section.fade-in {  /* フェードイン時 */
+.fade-left { /* 左から右 */
+    transform: translateX(-100px);
+}
+
+.fade-right { /* 右から左 */
+    transform: translateX(100px);
+}
+
+.fade-in { /* フェードイン時に位置を元に戻す */
     opacity: 1;
-    transform: translateY(0);
-  }
+    transform: translateX(0);
+}
 
 /* コンテンツのスタイル */
 .content {
@@ -245,6 +251,11 @@ section {
 .gallery-content > p {
     margin: 0;
 }
+
+.gallery-content > h2 {
+    margin: 0;
+}
+
 
 /* スライダーのラッパー */
 .slider-wrapper {
