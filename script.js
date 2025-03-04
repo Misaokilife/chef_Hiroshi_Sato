@@ -1,10 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    
-    // ローディングアニメーション
-    const loadingScreen = document.getElementById('loading-screen');
-    setTimeout(() => {
-        loadingScreen.classList.add('hide'); // フェードアウト + display: none;
-    }, 2000); // 2秒後にフェードアウト
 
     //スクロール時にヘッダーを半透明に
     const header = document.querySelector("header");

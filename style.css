@@ -65,58 +65,6 @@ h1 {
     margin-top: 7px;
 }
 
-/* ローディング画面のスタイル */
-#loading-screen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #1a1a1a; /* 背景色 */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    z-index: 9999;
-    opacity: 1;
-    transition: opacity 0.8s ease-out;
-}
-
-/* ローディングのテキスト */
-.loading-text {
-    font-size: 42px; /* h1 と同じサイズ */
-    font-weight: bold;
-    color:  rgba(255, 255, 255, 0.6); 
-    opacity: 0;
-    animation: fadeIn 2.5s ease-out forwards; /* 2.5秒かけてふわっと */
-}
-
-/* サブタイトル（少し遅れて表示） */
-.loading-subtitle {
-    opacity: 0;
-    font-size: 20px;
-    animation: fadeIn 2.2s ease-out forwards;
-}
-
-/* フェードインアニメーション */
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-        transform: translateY(15px); /* ちょっと下から出現 */
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* ローディング画面をフェードアウト */
-#loading-screen.hide {
-    opacity: 0;
-    transition: opacity 0.8s ease-out;
-    display: none;
-}
-
 .hamburger {
     display: none; /* デフォルトでは非表示に */
     font-size: 30px;
@@ -291,17 +239,22 @@ section {
 /* ギャラリーの説明 */
 .gallery-content {
     max-width: 800px;
-    margin: 0 auto 40px;
+    margin: 0 auto;
+}
+
+.gallery-content > p {
+    margin: 0;
 }
 
 /* スライダーのラッパー */
 .slider-wrapper {
-    width: 85%;
-    max-width: 1100px;
+    width: 100%;
+    max-width: 1200px;
     margin: 0 auto;
     height: 450px;
     display: flex;
     align-items: center;
+    gap: 40px;
 }
 
 /* スライダー全体のスタイル */
